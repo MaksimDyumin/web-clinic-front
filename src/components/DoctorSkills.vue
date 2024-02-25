@@ -38,6 +38,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: default;
 }
 @media (max-width: 960px) {
 .service-list{

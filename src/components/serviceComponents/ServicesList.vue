@@ -1,12 +1,21 @@
 <template>
   <v-card class="service-list-card mt-16" elevation="2">
-    <h2 class="mb-8 ">{{ servicesStore?.activeService?.name }}</h2>
-    <div class="items-container">
-      <div v-for="service in services" :key="service" class="card-item">
+    <transition name="fade" mode="out-in">
+      <h2 v-if="!servicesStore.loading" class="mb-8 ">{{ servicesStore?.activeCategory?.name }}</h2>
+    </transition>
+    
+    <transition name="fade" mode="out-in">
+      <div v-if="!servicesStore.loading" class="items-container">
+      <div v-for="(service, index) in getCategoryServices(servicesStore?.activeCategory?.name)" :key="index" class="card-item">
         <h3> {{ 5000 }}р</h3>
         <span>{{ service }}</span>
       </div>
     </div>
+    <div v-else>
+    <v-progress-circular indeterminate></v-progress-circular>
+   </div>
+    </transition>
+   
 
   </v-card>
 </template>
@@ -20,17 +29,25 @@ export default {
     const servicesStore = useServicesStore()
     return { servicesStore }
   },
+  methods: {
+    getCategoryServices(CategoryServicesName){
+      return this.services.map((value) => {
+        return value.replace('Service', CategoryServicesName)
+      })
+    }
+  },
   data() {
     return {
       services: [
-        'Service one so cool service',
-        'Service one so cool service',
-        'Service one so cool service',
-        'Service one so cool service',
-        'Service one so cool service',
-        'Service one so cool service',
-        'Service one so cool service',
-        'Service one so cool service',
+        'Service такая хорошая услуга!',
+        'Service такая хорошая услуга!',
+        'Service такая хорошая услуга!',
+        'Service такая хорошая услуга!',
+        'Service такая хорошая услуга!',
+        'Service такая хорошая услуга!',
+        'Service такая хорошая услуга!',
+        'Service такая хорошая услуга!',
+        'Service такая хорошая услуга!',
       ]
     }
   },

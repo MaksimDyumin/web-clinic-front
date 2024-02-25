@@ -49,7 +49,7 @@ export default {
           index: index,
           name: this.items[index]
         }
-      this.servicesStore.setActiveService(newValue)
+      this.servicesStore.setActiveCategory(newValue)
       this.$router.push({name: 'services'})
     }
   },

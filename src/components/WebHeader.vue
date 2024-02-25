@@ -17,7 +17,7 @@
 
       <v-app-bar-nav-icon class="d-sm-none" @click="drawer = !drawer"></v-app-bar-nav-icon>
       <nav class="nav-container">
-        <v-btn @click="$router.push({name: navItem.routeName})" v-for="navItem in navItems" :key="navItem.routeName" class="mobile-nav-item rounded-0">
+        <v-btn @click="changeRoute(navItem)" v-for="navItem in navItems" :key="navItem.routeName" class="mobile-nav-item rounded-0">
         {{ navItem.name }}
       </v-btn>
       </nav>
@@ -27,7 +27,7 @@
 
   <v-navigation-drawer v-model="drawer" location="top" temporary>
     <div class="d-flex flex-column">
-      <v-btn @click="$router.push({name: navItem.routeName})" v-for="navItem in navItems" :key="navItem.routeName" class="mobile-nav-item rounded-0">
+      <v-btn @click="changeRoute(navItem)" v-for="navItem in navItems" :key="navItem.routeName" class="mobile-nav-item rounded-0">
         {{ navItem.name }}
       </v-btn>
     </div>
@@ -58,6 +58,14 @@ export default {
           routeName: 'contacts'
         }
       ]
+    }
+  },
+  methods: {
+    changeRoute(navItem){
+      if (this.$route.name === navItem.routeName) {
+        return
+      }
+      this.$router.push({name: navItem.routeName})
     }
   },
 }

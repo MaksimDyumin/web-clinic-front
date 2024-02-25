@@ -1,7 +1,7 @@
 <template>
   <Carousel :items-to-show="4" :breakpoints="breakpoints">
-    <Slide v-for="slide in 10" :key="slide">
-      <div class="d-flex flex-column">
+    <Slide v-for="slide in 10" :key="slide" @click="$router.push({name: 'doctor', params:{id: slide}})">
+      <div class="d-flex flex-column w-100">
         <v-card elevation="4">
           <div class="d-flex flex-column">
             <v-img class="picture"  aspect-ratio="1" cover
@@ -12,6 +12,7 @@
         <span class="doctor-dolj">Челюстно-лицевой хирург</span>
       </div>
     </Slide>
+
     <template #addons>
       <Pagination />
     </template>
