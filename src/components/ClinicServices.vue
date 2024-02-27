@@ -1,7 +1,11 @@
 <template>
-  <div class="services-container">
-    <h2 class="text-center decorated-title">Услуги</h2>
-    <div class="item-container mt-12">
+  <div class="services-container mar-t mb-5">
+    <!-- <h2 class="text-center decorated-title">Услуги</h2> -->
+    <div class="services-header">
+      <h2 class="text-center decorated-title">Услуги</h2>
+      <span @click="$router.push({name: 'services'})">Остальные услуги</span>
+    </div>
+    <div class="item-container mt-6">
       <v-card
         @click="goToService(index)"
         v-for="item, index in items"
@@ -10,7 +14,7 @@
       >
         <div class="item">
           <h3>{{item}}</h3>
-          <v-img :src="require('@/assets/imgs/tooth1.png')" aspect-ratio="1/1"></v-img>
+          <v-img :src="'/imgs/services.jpg'" aspect-ratio="1/1"></v-img>
         </div>
       </v-card>
       
@@ -39,7 +43,7 @@ export default {
       "Ортопедическая стоматология",
       "Ортодонтия",
       "Отбеливание",
-      "Имплантация",
+      // "Имплантация",
       ],
     }
   },
@@ -64,11 +68,25 @@ export default {
   align-items: center;
   justify-content: center;
 
+  .services-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+
+    span{
+      cursor: pointer;
+    }
+    span:hover{
+      text-decoration: underline;
+    }
+  }
+
   .item-container{
-    width: 75%;
+    width: 100%;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px 80px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px 20px;
     
 
     .item {
@@ -100,8 +118,9 @@ export default {
   }
   @media (max-width: 960px) {
     .item-container{
-      width: 80%;
+      width: 100%;
       gap: 10px;
+      grid-template-columns: repeat(3, 1fr);
     }
   }
   @media (max-width: 800px) {

@@ -1,11 +1,11 @@
 <template>
-  <Carousel :items-to-show="4" :breakpoints="breakpoints">
-    <Slide v-for="slide in 10" :key="slide" @click="$router.push({name: 'doctor', params:{id: slide}})">
-      <div class="d-flex flex-column w-100">
+  <Carousel :breakpoints="breakpoints">
+
+    <Slide v-for="imgc in imgsSrcs" :key="imgc" @click="$router.push({ name: 'doctor', params: { id: imgc.id } })">
+      <div class="d-flex flex-column w-100 ">
         <v-card elevation="4">
-          <div class="d-flex flex-column">
-            <v-img class="picture"  aspect-ratio="1" cover
-              src="https://cdn.vuetifyjs.com/images/parallax/material.jpg"></v-img>
+          <div class="d-flex flex-column slide-content">
+            <v-img class="picture" aspect-ratio="1" cover :src="`/imgs/${imgc.src}`"></v-img>
           </div>
         </v-card>
         <span class="doctor-name mt-4">Генрих Абович Хацкевич</span>
@@ -15,13 +15,15 @@
 
     <template #addons>
       <Pagination />
+      <Navigation />
     </template>
+
   </Carousel>
 </template>
 
 <script>
 import { defineComponent } from 'vue'
-import { Carousel, Pagination, Slide } from 'vue3-carousel'
+import { Carousel, Pagination, Slide, Navigation } from 'vue3-carousel'
 
 import 'vue3-carousel/dist/carousel.css'
 
@@ -31,7 +33,7 @@ export default defineComponent({
     Carousel,
     Slide,
     Pagination,
-    // Navigation,
+    Navigation,
   },
   data() {
     return {
@@ -53,10 +55,24 @@ export default defineComponent({
         //   snapAlign: 'start',
         // },
       },
-
+      imgsSrcs: [
+        { src: 'v1.jpg', alt: 'Изображение 1', id: 1 },
+        { src: 'v2.jpg', alt: 'Изображение 1', id: 2 },
+        { src: 'v3.jpg', alt: 'Изображение 1', id: 3 },
+        { src: 'v4.jpg', alt: 'Изображение 1', id: 4 },
+        { src: 'v5.jpg', alt: 'Изображение 1', id: 5 },
+      ]
     }
   },
   methods: {
+    getImg(name) {
+      // const imageUrl = `file://wsl.localhost/Ubuntu/home/maxim/business_card_website/frontend/web-clinic-front/src/assets/imgs/${name}`
+      // return imageUrl
+      return ''
+    },
+    publicPath() {
+      return process.env.BASE_URL;
+    }
   }
 })
 </script>
@@ -72,6 +88,23 @@ export default defineComponent({
   align-items: center;
 }
 
+.slide-content {
+  height: 400px;
+}
+
+.carousel__next {
+  position: absolute;
+  top: -37px;
+  right: 30%;
+}
+.carousel__prev {
+  position: absolute;
+  top: -37px;
+  left: 30%;
+}
+
+
+
 .carousel__slide {
   padding: 10px;
   cursor: pointer;
@@ -80,7 +113,7 @@ export default defineComponent({
 
 .carousel__slide:hover {
   filter: brightness(40%);
-  transition: all 0.5s;
+  transition: all 0.3s ease;
 }
 
 .carousel__prev,

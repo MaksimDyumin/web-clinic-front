@@ -4,7 +4,7 @@
       {{ routeMapper()?.title }}
     </div>
     <div class="hero-img-container">
-      <v-img height="500" aspect-ratio="16/9" cover src="https://biomg.ru/uploads/images/notes/6-4644b.jpg">
+      <v-img height="500" aspect-ratio="16/9" cover src="imgs/glvhod.jpg">
       </v-img>
     </div>
 

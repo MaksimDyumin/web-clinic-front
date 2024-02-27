@@ -92,7 +92,7 @@ export default {
 }
 
 .background-active {
-  background-color: #80CBC4;
+  background-color: #007fa0;
 }
 
 @media (max-width: 960px) {

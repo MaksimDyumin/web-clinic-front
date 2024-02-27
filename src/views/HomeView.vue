@@ -1,8 +1,9 @@
 <template>
   <div class="home">
     <AboutClinic />
-    <DoctorsTeam />
     <ClinicServices />
+    <DoctorsTeam />
+    
   </div>
 </template>
 

@@ -1,6 +1,6 @@
 <template>
   <v-footer
-    class="bg-secondary-darken-1 text-center d-flex flex-column"
+    class="custom-colour text-center d-flex flex-column"
   >
     <div>
       <v-btn
@@ -13,7 +13,7 @@
     </div>
 
     <div class="pt-0">
-      Phasellus feugiat arcu sapien, et iaculis ipsum elementum sit amet. Mauris cursus commodo interdum. Praesent ut risus eget metus luctus accumsan id ultrices nunc. Sed at orci sed massa consectetur dignissim a sit amet dui. Duis commodo vitae velit et faucibus. Morbi vehicula lacinia malesuada. Nulla placerat augue vel ipsum ultrices, cursus iaculis dui sollicitudin. Vestibulum eu ipsum vel diam elementum tempor vel ut orci. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+     
     </div>
 
     <v-divider></v-divider>
@@ -42,5 +42,9 @@ export default {
 
 
 <style lang="scss">
-  
+  .custom-colour {
+    -v-theme-overlay-multiplier: 1;
+    background-color:#007fa0!important;
+    color: #ffffff !important;
+  }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <v-app id="appv">
     <WebHeader></WebHeader>
     <VueHero></VueHero>
 
@@ -35,8 +35,14 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  // background: linear-gradient(to bottom right, blue, pink);
 }
-
+#appv{
+  // background-image:  url(/public/imgs/b3.jpg);
+  // background-attachment: fixed;
+  // background-repeat: no-repeat;
+  // background-size: cover;
+}
 nav {
   padding: 30px;
 

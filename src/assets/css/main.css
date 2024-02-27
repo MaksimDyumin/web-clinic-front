@@ -6,7 +6,7 @@ a{
   color: black;
 }
 .mar-t{
-  margin-top: 120px;
+  margin-top: 80px;
 }
 .fade-enter-active, .fade-leave-active {
   transition: opacity .5s;
@@ -15,8 +15,14 @@ a{
   opacity: 0;
 }
 
+.main-container{
+  /* background-image:  url(/public/imgs/b3.jpg); */
+}
+
 @media (min-width: 1920px){
   .v-container {
     max-width: 1200px!important;
   }
 }
+
+

@@ -1,10 +1,11 @@
 <template>
   <div class="doctors-team-container d-flex flex-column mar-t">
     <div class="doctors-team-content d-flex flex-column">
-      <div>
-        <span class="title">Врачи клиники Петродент </span>
+      <div class="doctors-team-header">
+        <h2 class="text-center decorated-title">Команда врачей</h2>
+        <span @click="$router.push({ name: 'doctors' })">Все врачи</span>
       </div>
-      <div class="carousel-container mt-12">
+      <div class="carousel-container mt-5">
         <PhotoCarousel></PhotoCarousel>
       </div>
     </div>
@@ -21,15 +22,30 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .doctors-team-container {
   /* max-width: 1168px; */
   align-items: center;
-  margin-bottom: 120px;
 }
-.doctors-team-content{
+
+.doctors-team-content {
   max-width: 1470px;
   width: 100%;
+}
+
+.doctors-team-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+
+  span {
+    cursor: pointer;
+  }
+
+  span:hover {
+    text-decoration: underline;
+  }
 }
 
 .title {
@@ -58,5 +74,4 @@ export default {
   .text {
     width: 100%;
   }
-}
-</style>
+}</style>
