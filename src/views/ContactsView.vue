@@ -1,16 +1,16 @@
 <template>
   <div class="contacts">
     <h1>Контакты клиники</h1>
-    <contact-form class="mt-4" />
+    <ClinicNumbers />
   </div>
 </template>
 
 <script>
-import ContactForm from "@/components/contacts/ContactForm.vue";
+import ClinicNumbers from "@/components/contacts/ClinicNumbers.vue";
 
 export default {
   components:{
-    ContactForm
+    ClinicNumbers
   }
 }
 </script>
