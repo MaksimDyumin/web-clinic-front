@@ -1,20 +1,26 @@
 <template>
   <v-card class="service-list-card mt-16" elevation="2">
     <transition name="fade" mode="out-in">
-      <h2 v-if="!servicesStore.loading" class="mb-8 ">{{ servicesStore?.activeCategory?.name }}</h2>
+      <h2 class="mb-8 ">{{ servicesStore?.activeCategory?.name }}</h2>
     </transition>
     
-    <transition name="fade" mode="out-in">
-      <div v-if="!servicesStore.loading" class="items-container">
-      <div v-for="(service, index) in getCategoryServices(servicesStore?.activeCategory?.name)" :key="index" class="card-item">
-        <h3> {{ 5000 }}р</h3>
-        <span>{{ service }}</span>
-      </div>
+    
+      <div  class="items-container">
+        <transition name="fade" mode="out-in">
+          <div v-if="!servicesStore.loading" class="w-100">
+            <div v-for="(service, index) in getCategoryServices(servicesStore?.activeCategory?.name)" :key="index" class="card-item">
+              <h3> {{ 5000 }}р</h3>
+              <span>{{ service }}</span>
+            </div>
+          </div>
+          
+          <div v-else>
+            <v-progress-circular indeterminate></v-progress-circular>
+          </div>
+        </transition>
     </div>
-    <div v-else>
-    <v-progress-circular indeterminate></v-progress-circular>
-   </div>
-    </transition>
+    
+    
    
 
   </v-card>
@@ -69,7 +75,12 @@ export default {
 
 .items-container {
   max-height: 500px;
+  height: 500px;
   overflow: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .card-item {

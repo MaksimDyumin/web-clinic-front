@@ -15,8 +15,12 @@ export const useServicesStore = defineStore('services', {
     async setActiveCategory(newValue) {
       this.loading = true
       this.activeCategory = newValue
-      await new Promise(r => setTimeout(r, 500));
-      this.loading = false
+      await new Promise(r => setTimeout(r, 11500));
+      setTimeout(() => {
+        
+        // this.loading = false
+      }, 2000);
+      
     },
   },
 })
