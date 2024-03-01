@@ -5,6 +5,8 @@
       <div class="about-clinic">
         <div class="text-container">
 
+          <span class="name-title">Шторина Галина Борисовна</span>
+
           <p class="mt-8">Для меня стоматология – это смысл всей моей жизни. Пародонтологией я занимаюсь почти 50 лет,
             закончив в 1971 году Первый Ленинградский Медицинский институт, отработав 3 года по распределению в
             Новгородской области, поступила в 1974 году в ординатуру, в 1978 году – в аспирантуру, в 1987 году защитила
@@ -38,6 +40,12 @@ export default {
   border-bottom: 1px solid black;
 }
 
+.name-title{
+  width: 100%;
+  text-align: center;
+  font-weight: bold; 
+}
+
 .about-clinic {
   display: flex;
   text-align: start;
@@ -47,6 +55,8 @@ export default {
   width: 50%;
   padding: 0 20px;
   text-align: justify;
+  display: flex;
+  flex-direction: column;
   
   p {
     font-size: 15px;
