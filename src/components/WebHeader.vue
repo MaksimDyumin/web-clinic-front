@@ -13,21 +13,19 @@
       <a href="tel:+79110111225">
         <v-icon class="phone-icone d-sm-none">mdi-phone-outgoing-outline</v-icon>
       </a>
-      
 
       <v-app-bar-nav-icon class="d-sm-none" @click="drawer = !drawer"></v-app-bar-nav-icon>
       <nav class="nav-container">
-        <v-btn @click="changeRoute(navItem)" v-for="navItem in navItems" :key="navItem.routeName" class="mobile-nav-item rounded-0">
-        {{ navItem.name }}
-      </v-btn>
+        <v-btn @click="changeRoute(navItem)" v-for="navItem in navItems" :key="navItem.routeName" class="nav-item rounded-0">
+          {{ navItem.name }}
+        </v-btn>
       </nav>
-
     </v-container>
   </v-app-bar>
 
   <v-navigation-drawer v-model="drawer" location="top" temporary>
     <div class="d-flex flex-column">
-      <v-btn @click="changeRoute(navItem)" v-for="navItem in navItems" :key="navItem.routeName" class="mobile-nav-item rounded-0">
+      <v-btn @click="changeRoute(navItem)" v-for="navItem in navItems" :key="navItem.routeName" class="mobile-nav-item rounded-0 border-0">
         {{ navItem.name }}
       </v-btn>
     </div>
@@ -88,7 +86,12 @@ nav {
 }
 
 .mobile-nav-item{
-  // height: 50px!important;
+  font-size: 25px;
+  border: none;
+  box-shadow: none;
+}
+.mobile-nav-item + .mobile-nav-item{
+  margin-top: 7px;
 }
 
 @media (max-width: 960px) {
