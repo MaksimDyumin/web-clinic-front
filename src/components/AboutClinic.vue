@@ -47,6 +47,7 @@ export default {
   width: 50%;
   padding: 0 20px;
   text-align: justify;
+  
   p {
     font-size: 15px;
   }
@@ -55,7 +56,8 @@ export default {
 .img-container {
   // height: 470px;
   width: 50%;
-
+  overflow: hidden;
+  border-radius: 5px;
   img {
     object-fit: cover;
     width: 100%;
