@@ -1,11 +1,11 @@
 <template>
   <Carousel :breakpoints="breakpoints">
-
-    <Slide v-for="imgc in imgsSrcs" :key="imgc" @click="$router.push({ name: 'doctor', params: { id: imgc.id } })">
+    <Slide v-for="doctor in doctorsStore.doctors" :key="doctor" @click="$router.push({ name: 'doctor', params: { id: doctor.id } })">
       <div class="d-flex flex-column w-100 ">
+        
         <v-card elevation="4">
           <div class="d-flex flex-column slide-content">
-            <v-img class="picture" aspect-ratio="1" cover :src="`/imgs/${imgc.src}`"></v-img>
+            <v-img class="picture" aspect-ratio="1" cover :src="`/imgs/${doctor.imgSrc}`"></v-img>
           </div>
         </v-card>
         <span class="doctor-name mt-4">Генрих Абович Хацкевич</span>
@@ -23,12 +23,20 @@
 
 <script>
 import { defineComponent } from 'vue'
+import { useDoctorsStore } from "@/stores/doctors";
 import { Carousel, Pagination, Slide, Navigation } from 'vue3-carousel'
 
 import 'vue3-carousel/dist/carousel.css'
 
 export default defineComponent({
   name: 'BasicWrap',
+  setup() {
+    const doctorsStore = useDoctorsStore()
+
+    return {
+      doctorsStore
+    }
+  },
   components: {
     Carousel,
     Slide,

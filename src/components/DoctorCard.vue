@@ -1,13 +1,12 @@
 <template>
   <div class="doctor-card-container mar-t">
-      
       <div class="about-doctor">
         <div class="text-container">
           <h3>ФИО {{ $route?.params?.id }}</h3>
           <p class="mt-8"> Врач-стоматолог хирург имплантолог, стаж работы по специальности 9 лет.</p>
         </div>
         <div class="img-container">
-          <img :src="require('@/assets/imgs/photo.jpg')" alt="">
+          <img :src="`/imgs/${doctorsStore.doctor.imgSrc}`" alt="вавы">
         </div>
       </div>
     
@@ -16,8 +15,21 @@
 
 
 <script>
+import { useDoctorsStore } from "@/stores/doctors";
+
 export default {
-  
+  setup() {
+    const doctorsStore = useDoctorsStore()
+
+    return {
+      doctorsStore
+    }
+  },
+  async created() {
+    const docId = this.$route?.params.id
+    await this.doctorsStore.getDoctorById(docId)
+    // console.log(this.doctorsStore.doctor)
+  }
 }
 </script>
 
@@ -37,7 +49,8 @@ export default {
   .img-container{
     width: 300px;
     height: 450px;
-
+    border-radius: 5px;
+    overflow: hidden;
     img{
       width: 100%;
       height: 100%;
