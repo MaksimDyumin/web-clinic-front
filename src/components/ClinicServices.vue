@@ -14,7 +14,7 @@
       >
         <div class="item">
           <h3>{{item}}</h3>
-          <v-img :src="'/imgs/services.jpg'" aspect-ratio="1/1"></v-img>
+          <v-img :src="'/imgs/prod/reng.jpg'" aspect-ratio="1/1"></v-img>
         </div>
       </v-card>
       
@@ -97,6 +97,7 @@ export default {
       overflow: hidden;
       position: relative;
       cursor: pointer;
+      color: #fff;
 
       h3{
         height: 56px;

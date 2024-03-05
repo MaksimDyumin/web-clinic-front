@@ -68,6 +68,7 @@ export default {
   width: 50%;
   overflow: hidden;
   border-radius: 5px;
+  
   img {
     object-fit: cover;
     width: 100%;

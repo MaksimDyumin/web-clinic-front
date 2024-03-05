@@ -1,9 +1,9 @@
 <template>
   <v-app id="appv">
     <WebHeader></WebHeader>
-    <VueHero></VueHero>
+    <!-- <VueHero></VueHero> -->
 
-    <v-container class="main-container">
+    <v-container class="main-container mt-16">
       <router-view v-slot="{ Component, route }">
         <transition name="fade" mode="out-in">
           <component :is="Component" :key="route.path" />

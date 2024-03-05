@@ -1,5 +1,5 @@
 <template>
-  <Carousel :breakpoints="breakpoints">
+  <Carousel :breakpoints="breakpoints" :wrap-around="true">
     <Slide v-for="doctor in doctorsStore.doctors" :key="doctor" @click="$router.push({ name: 'doctor', params: { id: doctor.id } })">
       <div class="d-flex flex-column w-100 ">
         

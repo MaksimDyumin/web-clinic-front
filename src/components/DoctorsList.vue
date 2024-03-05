@@ -1,9 +1,12 @@
 <template>
   <div class="doctors-list-container mar-t">
-    <v-card @click="$router.push({name: 'doctor', params:{id: item}})" v-for="item in 7" :key="item" class="doctor-card">
-      <!-- <v-img :src="require('@/assets/imgs/tooth2.png')" aspect-ratio="1/1"></v-img> -->
+    <v-card 
+      @click="$router.push({name: 'doctor', params:{id: doctor.id}})"
+      v-for="doctor in doctorsStore.doctors" :key="doctor.id"
+      class="doctor-card"
+    >
       <div class="img-container">
-        <img src="@/assets/imgs/tooth2.png" alt="">
+        <img :src="`/imgs/${doctor.imgSrc}`" alt="">
       </div>
       <h4>Фамилия Имя Отчество</h4>
       <h5>Должность Направление</h5>
@@ -14,8 +17,16 @@
 
 
 <script>
+import { useDoctorsStore } from "@/stores/doctors";
+
 export default {
-  
+  setup() {
+    const doctorsStore = useDoctorsStore()
+
+    return {
+      doctorsStore
+    }
+  },
 }
 </script>
 
@@ -47,7 +58,7 @@ export default {
     }
   } 
   
-
+  color: #fff;
   h4{
     position: absolute;
     z-index: 1;
