@@ -7,6 +7,7 @@ export const useServicesStore = defineStore('services', {
         index: 0,
         name: 'Рентген - диагностика'
       },
+      activeService: '',
       loading: false
     }
   },

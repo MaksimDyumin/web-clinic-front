@@ -1,10 +1,13 @@
 <template>
   <div>
-    <v-card class="service-line-container">
-      {{ services.serviceName }}
+    <v-card @click="openList(service.serviceName)" class="service-line-container">
+      {{ service.serviceName }}
     </v-card>
-    <div class=" sub-services-container active">
-      <div v-for="subService in services.subServices" :key="subService" class="text-container">
+    <div class="sub-services-container" :class="`${servicesStore.activeService == service.serviceName ? 'active' : ''}`" id="subCon">
+      <div 
+        v-for="subService in service.subServices" :key="subService" 
+        :class="`text-container ${servicesStore.activeService == service.serviceName ? 'active' : ''}`"
+      >
         <h3>{{ subService.serviceName }}</h3>
         <v-divider></v-divider>
         <p>{{ subService.servicePrice }}Р</p>
@@ -17,18 +20,34 @@
 
 
 <script>
+import { useServicesStore } from '@/stores/services';
+
 export default {
+  setup() {
+    const servicesStore = useServicesStore()
+    return {servicesStore}
+  },
   props: {
-    services: {
+    service: {
       // type: Object,
       default: () => []
     }
   },
+  methods: {
+    openList(serviceName) {
+      if (this.servicesStore.activeService === serviceName) {
+        this.servicesStore.activeService = ''
+        return
+      }
+      console.log('dasads')
+      this.servicesStore.activeService = serviceName
+    }
+  }
 }
 </script>
 
 
-<style scoped lang="scss">
+<style lang="scss">
 
 .service-line-container {
   display: flex;
@@ -42,14 +61,18 @@ export default {
   cursor: pointer;
 }
 
-.sub-services-container{
-  background-color: #f2eeee;
-  height: 0;
+
+#list #subCon{
+  max-height: 0;
   overflow: hidden;
   transition: all 0.5s;
+  overflow: auto;
 }
+
+
+
 .active {
-  height: 100%;
+  max-height: 530px!important;
 }
 
 .text-container {

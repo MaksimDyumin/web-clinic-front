@@ -1,9 +1,10 @@
 <template>
-  <div class="d-flex">
+  <div class="">
     <ServiceLine 
-      class="mt-4 d-flex flex-column" 
+      class="mt-4"
+      id="list"
       v-for="item in services" :key="item"
-      :services="item">
+      :service="item">
     </ServiceLine>
   </div>
 </template>
@@ -37,8 +38,21 @@ export default {
           ]
         },
         {
-          serviceName: "Консультации",
+          serviceName: "Рентген",
           subServices: [
+            {
+              serviceName: 'Прием (осмотр, консультация) врача стоматолога-ортодонта первичный',
+              servicePrice: 2000,
+            },
+            {
+              serviceName: 'Прием (осмотр, консультация) врача стоматолога-ортодонта первичный',
+              servicePrice: 2000,
+            },
+            {
+              serviceName: 'Прием (осмотр, консультация) врача стоматолога-ортодонта первичный',
+              servicePrice: 2000,
+              
+            },
             {
               serviceName: 'Прием (осмотр, консультация) врача стоматолога-ортодонта первичный',
               servicePrice: 2000,
