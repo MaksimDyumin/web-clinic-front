@@ -1,7 +1,7 @@
 <template>
   <div class="mt-16">
     <Carousel :breakpoints="breakpoints" :wrap-around="true">
-    <Slide v-for="license in licensesStore.licensesList" :key="license">
+    <Slide v-for="license in licensesStore.licensesList" :key="license" @click="showLicensePhoto(`/imgs/prod/${license.imgSrc}`)">
       <div class="d-flex flex-column w-100">
         <v-card elevation="4">
           <div class="d-flex flex-column slide-content">
@@ -13,10 +13,18 @@
 
     <template #addons>
       <Pagination />
-      <Navigation />
     </template>
-
   </Carousel>
+
+  <v-dialog
+      v-model="showPhoto"
+      height="1200px"
+      width="600px"
+    >
+    <v-card height="100%" width="100%" elevation="5">
+      <v-img aspect-ratio="1" cover :src="photoPath"></v-img>
+    </v-card>
+    </v-dialog>
   </div>
 </template>
 
@@ -34,10 +42,18 @@ export default {
     }
   },
   components: {
-    Carousel, Pagination, Slide, Navigation
+    Carousel, Pagination, Slide
+  },
+  methods: {
+    showLicensePhoto(path) {
+      this.photoPath = path
+      this.showPhoto = !this.showPhoto
+    }
   },
   data() {
     return {
+      showPhoto: false,
+      photoPath: '',
       breakpoints: {
         0: {
           itemsToShow: 1,
@@ -88,7 +104,14 @@ export default {
   left: 30%;
 }
 
-
+.photo-container{
+  height:  1200px;
+  width: 600px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 .carousel__slide {
   padding: 10px;
