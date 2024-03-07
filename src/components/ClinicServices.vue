@@ -3,7 +3,7 @@
     <!-- <h2 class="text-center decorated-title">Услуги</h2> -->
     <div class="services-header">
       <h2 class="text-center decorated-title">Услуги</h2>
-      <span @click="$router.push({name: 'services'})">Остальные услуги</span>
+      <span @click="$router.push({name: 'services'})">Все услуги</span>
     </div>
     <div class="item-container mt-6">
       <v-card
@@ -17,9 +17,7 @@
           <v-img :src="'/imgs/prod/reng.jpg'" aspect-ratio="1/1"></v-img>
         </div>
       </v-card>
-      
     </div>
-
   </div>
 </template>
 

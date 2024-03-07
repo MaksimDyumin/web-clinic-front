@@ -47,7 +47,7 @@ export default {
 </script>
 
 
-<style lang="scss">
+<style scoped lang="scss">
 
 .service-line-container {
   display: flex;
