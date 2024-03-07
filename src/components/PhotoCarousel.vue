@@ -85,7 +85,7 @@ export default defineComponent({
 })
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 .carousel__item {
   min-height: 200px;
   width: 100%;
