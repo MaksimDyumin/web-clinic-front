@@ -3,7 +3,7 @@
     <ServiceLine 
       class="mt-4"
       id="list"
-      v-for="item in services" :key="item"
+      v-for="item in servicesStore.services" :key="item"
       :service="item">
     </ServiceLine>
   </div>
@@ -13,61 +13,18 @@
 <script>
 import ServiceLine from "@/components/serviceComponents/ServiceLine.vue";
 
+import { useServicesStore } from '@/stores/services';
+
 export default {
+  setup() {
+    const servicesStore = useServicesStore()
+    return {servicesStore}
+  },
   components: {
     ServiceLine
   },
   data() {
     return {
-      services: [
-        {
-          serviceName: "Консультации",
-          subServices: [
-            {
-              serviceName: 'Прием (осмотр, консультация) врача стоматолога-ортодонта первичный',
-              servicePrice: 2000,
-            },
-            {
-              serviceName: 'Прием (осмотр, консультация) врача стоматолога-ортодонта первичный',
-              servicePrice: 2000,
-            },
-            {
-              serviceName: 'Прием (осмотр, консультация) врача стоматолога-ортодонта первичный',
-              servicePrice: 2000,
-            },
-          ]
-        },
-        {
-          serviceName: "Рентген",
-          subServices: [
-            {
-              serviceName: 'Прием (осмотр, консультация) врача стоматолога-ортодонта первичный',
-              servicePrice: 2000,
-            },
-            {
-              serviceName: 'Прием (осмотр, консультация) врача стоматолога-ортодонта первичный',
-              servicePrice: 2000,
-            },
-            {
-              serviceName: 'Прием (осмотр, консультация) врача стоматолога-ортодонта первичный',
-              servicePrice: 2000,
-              
-            },
-            {
-              serviceName: 'Прием (осмотр, консультация) врача стоматолога-ортодонта первичный',
-              servicePrice: 2000,
-            },
-            {
-              serviceName: 'Прием (осмотр, консультация) врача стоматолога-ортодонта первичный',
-              servicePrice: 2000,
-            },
-            {
-              serviceName: 'Прием (осмотр, консультация) врача стоматолога-ортодонта первичный',
-              servicePrice: 2000,
-            },
-          ]
-        },
-      ]
     }
   }
 }

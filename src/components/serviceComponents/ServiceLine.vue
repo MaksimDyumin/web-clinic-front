@@ -10,7 +10,7 @@
       >
         <h3>{{ subService.serviceName }}</h3>
         <v-divider></v-divider>
-        <p>{{ subService.servicePrice }}Р</p>
+        <p>{{ subService.price }}Р</p>
       </div>
     </div>
 

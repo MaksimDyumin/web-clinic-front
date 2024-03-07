@@ -13,12 +13,24 @@ import ServicesList from "@/components/serviceComponents/ServicesList.vue";
 
 import ServicesList1 from "@/components/serviceComponents/ServicesList1.vue";
 
+import { useServicesStore } from "@/stores/services";
+
 export default {
+  setup(props) {
+    const servicesStore = useServicesStore()
+    
+    return {
+      servicesStore
+    }
+  },
   components:{
     ServicesCategoryList,
     ServicesList,
 
     ServicesList1
-  }
+  },
+  async mounted() {
+    await this.servicesStore.getServices()
+  },
 }
 </script>
